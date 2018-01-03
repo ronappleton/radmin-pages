@@ -22,7 +22,7 @@ class PageResourceController extends Controller
 
     private function pageCategoriesAll()
     {
-        $pageCategories = PageCategory::orderBy('name', 'ASC')->get();
+        $pageCategories = PageCategory::orderBy('category', 'ASC')->get();
         return DataTables::collection($pageCategories)
             ->addColumn('action', function ($pageCategory) {
                 $url = route('users.edit', $pageCategory->id);

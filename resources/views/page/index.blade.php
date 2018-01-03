@@ -11,7 +11,7 @@
         <a href="{{ route('users.create') }}" class="btn btn-sm btn-success">Create New Page</a>
     </p>
     <div class="form-group">
-        <table class="table table-bordered" id="users">
+        <table class="table table-bordered" id="pages">
             <thead>
             <tr>
                 <th>Name</th>
@@ -28,7 +28,7 @@
 
 <script>
     $(function () {
-        $('#users').DataTable({
+        $('#pages').DataTable({
             processing: true,
             serverSide: true,
             ajax: '{{ url('admin/page/ajax-resources/pagesAll') }}',

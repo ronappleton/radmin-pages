@@ -23,19 +23,21 @@
 
 @stop
 
-<script>
-    $(function () {
-        $('#page-categories').DataTable({
-            processing: true,
-            serverSide: true,
-            ajax: '{{ url('admin/page/ajax-resources/pageCategoriesAll') }}',
-            columns: [
-                {data: 'name', name: 'name'},
-                {data: 'email', name: 'email'},
-                {data: 'created_at', name: 'created_at'},
-                {data: 'updated_at', name: 'updated_at'},
-                {data: 'action', name: 'action', orderable: false, searchable: false}
-            ]
+@push('scripts')
+    <script>
+        $(function () {
+            $('#page-categories').DataTable({
+                processing: true,
+                serverSide: true,
+                ajax: '{{ url('admin/page/ajax-resources/pageCategoriesAll') }}',
+                columns: [
+                    {data: 'name', name: 'name'},
+                    {data: 'email', name: 'email'},
+                    {data: 'created_at', name: 'created_at'},
+                    {data: 'updated_at', name: 'updated_at'},
+                    {data: 'action', name: 'action', orderable: false, searchable: false}
+                ]
+            });
         });
-    });
-</script>
+    </script>
+@endpush

@@ -13,7 +13,7 @@ class PageController extends Controller
         //
     }
     /**
-     * Display a listing of the resource.
+     * Display a listing of the resources.
      *
      * @return \Illuminate\Http\Response
      */
@@ -23,7 +23,7 @@ class PageController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
+     * Show the form for creating a new resources.
      *
      * @return \Illuminate\Http\Response
      */
@@ -33,7 +33,7 @@ class PageController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Store a newly created resources in storage.
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
@@ -44,7 +44,7 @@ class PageController extends Controller
     }
 
     /**
-     * Display the specified resource.
+     * Display the specified resources.
      *
      * @param  \RonAppleton\Radmin\Pages\Models\Page  $page
      * @return \Illuminate\Http\Response
@@ -56,7 +56,7 @@ class PageController extends Controller
     }
 
     /**
-     * Show the form for editing the specified resource.
+     * Show the form for editing the specified resources.
      *
      * @param  \RonAppleton\Radmin\Pages\Models\Page  $page
      * @return \Illuminate\Http\Response
@@ -68,7 +68,7 @@ class PageController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
+     * Update the specified resources in storage.
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  \RonAppleton\Radmin\Pages\Models\Page  $page
@@ -80,7 +80,7 @@ class PageController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
+     * Remove the specified resources from storage.
      *
      * @param  \RonAppleton\Radmin\Pages\Models\Page  $page
      * @return \Illuminate\Http\Response

@@ -9,7 +9,7 @@ use Illuminate\Http\Request;
 class PageCategoryController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * Display a listing of the resources.
      *
      * @return \Illuminate\Http\Response
      */
@@ -19,7 +19,7 @@ class PageCategoryController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
+     * Show the form for creating a new resources.
      *
      * @return \Illuminate\Http\Response
      */
@@ -29,7 +29,7 @@ class PageCategoryController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Store a newly created resources in storage.
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
@@ -40,7 +40,7 @@ class PageCategoryController extends Controller
     }
 
     /**
-     * Display the specified resource.
+     * Display the specified resources.
      *
      * @param  \App\PageCategory  $pageCategory
      * @return \Illuminate\Http\Response
@@ -51,7 +51,7 @@ class PageCategoryController extends Controller
     }
 
     /**
-     * Show the form for editing the specified resource.
+     * Show the form for editing the specified resources.
      *
      * @param  \App\PageCategory  $pageCategory
      * @return \Illuminate\Http\Response
@@ -62,7 +62,7 @@ class PageCategoryController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
+     * Update the specified resources in storage.
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  \App\PageCategory  $pageCategory
@@ -74,7 +74,7 @@ class PageCategoryController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
+     * Remove the specified resources from storage.
      *
      * @param  \App\PageCategory  $pageCategory
      * @return \Illuminate\Http\Response

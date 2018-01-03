@@ -15,7 +15,7 @@ class PageCategoryController extends Controller
      */
     public function index()
     {
-        //
+        return view('radmin-pages::page-category.index');
     }
 
     /**
@@ -25,7 +25,7 @@ class PageCategoryController extends Controller
      */
     public function create()
     {
-        //
+        return view('radmin-pages::page-category.create');
     }
 
     /**
@@ -42,30 +42,32 @@ class PageCategoryController extends Controller
     /**
      * Display the specified resources.
      *
-     * @param  \App\PageCategory  $pageCategory
+     * @param  \RonAppleton\Radmin\Pages\Models\PageCategory  $pageCategory
      * @return \Illuminate\Http\Response
      */
     public function show(PageCategory $pageCategory)
     {
-        //
+        $model = $pageCategory;
+        return view('radmin-pages::page-category.show', compact('model'));
     }
 
     /**
      * Show the form for editing the specified resources.
      *
-     * @param  \App\PageCategory  $pageCategory
+     * @param  \RonAppleton\Radmin\Pages\Models\PageCategory  $pageCategory
      * @return \Illuminate\Http\Response
      */
     public function edit(PageCategory $pageCategory)
     {
-        //
+        $model = $pageCategory;
+        return view('radmin-pages::page-category.edit', compact('model'));
     }
 
     /**
      * Update the specified resources in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\PageCategory  $pageCategory
+     * @param  \RonAppleton\Radmin\Pages\Models\PageCategory  $pageCategory
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, PageCategory $pageCategory)
@@ -76,11 +78,12 @@ class PageCategoryController extends Controller
     /**
      * Remove the specified resources from storage.
      *
-     * @param  \App\PageCategory  $pageCategory
+     * @param  \RonAppleton\Radmin\Pages\Models\PageCategory  $pageCategory
      * @return \Illuminate\Http\Response
      */
     public function destroy(PageCategory $pageCategory)
     {
-        //
+        $model = $pageCategory;
+        $model->delete();
     }
 }

@@ -6,4 +6,5 @@ Route::group(['prefix' => 'page', 'middleware' => ['web', 'auth']], function () 
 
 Route::group(['prefix' => 'admin', 'middleware' => ['web', 'auth']], function () {
    Route::resource('page', 'RonAppleton\Radmin\Pages\Http\Controllers\PageController');
+   Route::resource('page-category', 'RonAppleton\Radmin\Pages\Http\Controllers\PageCategoryController');
 });

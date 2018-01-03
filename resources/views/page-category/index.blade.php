@@ -1,9 +1,9 @@
 @extends(config('radmin-users.layout_file'))
 
-@section('title', 'Users')
+@section('title', 'Pages')
 
 @section('content_header')
-    <h1>All Users</h1>
+    <h1>Page Categories</h1>
 @stop
 
 @section('content')

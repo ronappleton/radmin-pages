@@ -52,7 +52,7 @@ class PageController extends Controller
     public function show(Page $page)
     {
         $model = $page;
-        return view('radmin-pages::page.show', compact($model));
+        return view('radmin-pages::page.show', compact('model'));
     }
 
     /**

@@ -97,7 +97,7 @@ class ModuleServiceProvider extends ServiceProvider
                     ],
                     [
                         'text' => 'Page Categories',
-                        'url' => 'admin/users',
+                        'route' => 'page-category.index',
                         'icon' => 'user',
                         'priority' => 'medium',
                         'dropped',

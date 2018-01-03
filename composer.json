@@ -1,0 +1,44 @@
+{
+    "name": "ronappleton/radmin-pages",
+    "description": "Pages module for Radmin",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Ron Appleton",
+            "email": "ron.appleton@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "laravel/framework": "5.5.*",
+        "ronappleton/menubuilder": "dev-master"
+    },
+    "autoload": {
+        "psr-4": {
+            "RonAppleton\\Radmin\\Pages\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "RonAppleton\\Radmin\\Pages\\ModuleServiceProvider"
+            ],
+            "aliases": {
+            }
+        }
+    },
+    "config": {
+        "sort-packages": true,
+        "optimize-autoloader": true
+    },
+    "repositories": [
+        {
+            "type": "path",
+            "url": "../menubuilder",
+            "options": {
+                "symlink": true
+            }
+        }
+    ]
+}

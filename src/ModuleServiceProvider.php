@@ -90,7 +90,7 @@ class ModuleServiceProvider extends ServiceProvider
                 'submenu' => [
                     [
                         'text' => 'Pages',
-                        'url' => 'admin/users',
+                        'url' => 'admin/page/index',
                         'icon' => 'user',
                         'priority' => 'medium',
                         'dropped',

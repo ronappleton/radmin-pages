@@ -8,16 +8,13 @@
 
 @section('content')
     <p>
-        <a href="{{ route('users.create') }}" class="btn btn-sm btn-success">Create New User</a>
+        <a href="{{ route('users.create') }}" class="btn btn-sm btn-success">Create New Page Category</a>
     </p>
     <div class="form-group">
         <table class="table table-bordered" id="users">
             <thead>
             <tr>
                 <th>Name</th>
-                <th>Email Address</th>
-                <th>Created At</th>
-                <th>Updated At</th>
                 <th>Action</th>
             </tr>
             </thead>

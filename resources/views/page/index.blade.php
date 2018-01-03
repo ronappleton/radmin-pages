@@ -31,7 +31,7 @@
         $('#users').DataTable({
             processing: true,
             serverSide: true,
-            ajax: '{{ url('admin/ajax-resources/allUsers') }}',
+            ajax: '{{ url('admin/page/ajax-resources/pagesAll') }}',
             columns: [
                 {data: 'name', name: 'name'},
                 {data: 'email', name: 'email'},

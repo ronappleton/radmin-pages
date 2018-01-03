@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "680c2afa1fb30b830b9fdd0614fd33de",
+    "content-hash": "895029d17ff0706bcdb44a6ddccef6e2",
     "packages": [
         {
             "name": "doctrine/inflector",
@@ -935,6 +935,166 @@
             "transport-options": {
                 "symlink": true
             }
+        },
+        {
+            "name": "ronappleton/radmin",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/ronappleton/laravel-radmin.git",
+                "reference": "20191097b3ee5564f58df269f9dc0164ae11f81d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/ronappleton/laravel-radmin/zipball/20191097b3ee5564f58df269f9dc0164ae11f81d",
+                "reference": "20191097b3ee5564f58df269f9dc0164ae11f81d",
+                "shasum": ""
+            },
+            "require": {
+                "laravel/framework": "5.5.*",
+                "ronappleton/menubuilder": "dev-master",
+                "ronappleton/radmin-permissions": "dev-master"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "RonAppleton\\Radmin\\ModuleServiceProvider"
+                    ],
+                    "aliases": []
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "RonAppleton\\Radmin\\": "src/"
+                },
+                "files": [
+                    "src/helpers.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Ron Appleton",
+                    "email": "ron.appleton@gmail.com"
+                }
+            ],
+            "description": "Admin interface for laravel, pull and play",
+            "time": "2018-01-03T02:21:40+00:00"
+        },
+        {
+            "name": "ronappleton/radmin-permissions",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/ronappleton/radmin-permissions.git",
+                "reference": "72814f0dc3fffffa562473a6a17c00d1cfcdcff1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/ronappleton/radmin-permissions/zipball/72814f0dc3fffffa562473a6a17c00d1cfcdcff1",
+                "reference": "72814f0dc3fffffa562473a6a17c00d1cfcdcff1",
+                "shasum": ""
+            },
+            "require": {
+                "laravel/framework": "5.5.*",
+                "ronappleton/menubuilder": "dev-master",
+                "spatie/laravel-permission": "dev-master"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "RonAppleton\\Radmin\\Permissions\\ModuleServiceProvider"
+                    ],
+                    "aliases": []
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "RonAppleton\\Radmin\\Permissions\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Ron Appleton",
+                    "email": "ron.appleton@gmail.com"
+                }
+            ],
+            "description": "Permissions module for RADMIN",
+            "time": "2017-12-31T15:08:48+00:00"
+        },
+        {
+            "name": "spatie/laravel-permission",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/spatie/laravel-permission.git",
+                "reference": "e63427e4c364061f05f03fc893727198669c43c7"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/spatie/laravel-permission/zipball/e63427e4c364061f05f03fc893727198669c43c7",
+                "reference": "e63427e4c364061f05f03fc893727198669c43c7",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/auth": "~5.3.0|~5.4.0|~5.5.0",
+                "illuminate/container": "~5.3.0|~5.4.0|~5.5.0",
+                "illuminate/contracts": "~5.3.0|~5.4.0|~5.5.0",
+                "illuminate/database": "~5.4.0|~5.5.0",
+                "php": ">=7.0"
+            },
+            "require-dev": {
+                "monolog/monolog": "^1.22",
+                "orchestra/testbench": "~3.3.0|~3.4.2|~3.5.0",
+                "phpunit/phpunit": "^5.7|6.2"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Spatie\\Permission\\PermissionServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Spatie\\Permission\\": "src"
+                },
+                "files": [
+                    "src/helpers.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Freek Van der Herten",
+                    "email": "freek@spatie.be",
+                    "homepage": "https://spatie.be",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Permission handling for Laravel 5.4 and up",
+            "homepage": "https://github.com/spatie/laravel-permission",
+            "keywords": [
+                "acl",
+                "laravel",
+                "permission",
+                "security",
+                "spatie"
+            ],
+            "time": "2018-01-02T16:39:56+00:00"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -1907,7 +2067,8 @@
     "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
-        "ronappleton/menubuilder": 20
+        "ronappleton/menubuilder": 20,
+        "ronappleton/radmin": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,

@@ -12,7 +12,8 @@
     "minimum-stability": "dev",
     "require": {
         "laravel/framework": "5.5.*",
-        "ronappleton/menubuilder": "dev-master"
+        "ronappleton/menubuilder": "dev-master",
+        "ronappleton/radmin": "dev-master"
     },
     "autoload": {
         "psr-4": {

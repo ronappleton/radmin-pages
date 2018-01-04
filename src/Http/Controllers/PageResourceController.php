@@ -25,7 +25,7 @@ class PageResourceController extends Controller
         $pageCategories = PageCategory::orderBy('category', 'ASC')->get();
         return DataTables::collection($pageCategories)
             ->addColumn('action', function ($pageCategory) {
-                $url = route('users.edit', $pageCategory->id);
+                $url = route('page-category.edit', $pageCategory->id);
                 return "<a href=\"$url\" class=\"btn btn-xs btn-primary\"><i class=\"glyphicon glyphicon-edit\"></i> Edit</a>";
             })
             ->editColumn('id', 'ID: {{$id}}')
@@ -37,7 +37,7 @@ class PageResourceController extends Controller
         $pages = Page::orderBy('name', 'ASC')->get();
         return DataTables::collection($pages)
             ->addColumn('action', function ($page) {
-                $url = route('users.edit', $page->id);
+                $url = route('page.edit', $page->id);
                 return "<a href=\"$url\" class=\"btn btn-xs btn-primary\"><i class=\"glyphicon glyphicon-edit\"></i> Edit</a>";
             })
             ->editColumn('id', 'ID: {{$id}}')

@@ -15,12 +15,15 @@ class CreatePagesTable extends Migration
     {
         Schema::create('pages', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('category_id')->unsigned()->index('pages_category_id_foreign');
             $table->string('title')->length('125');
             $table->string('content_header')->length('1024')->nullable();
             $table->string('name')->length('125');
             $table->text('content');
             $table->timestamps();
             $table->softDeletes();
+
+            $table->foreign('category_id')->references('id')->on('page_categories')->onUpdate('RESTRICT')->onDelete('RESTRICT');
         });
     }
 

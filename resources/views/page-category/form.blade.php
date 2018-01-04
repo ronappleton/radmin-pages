@@ -1,7 +1,12 @@
-<?php
-/**
- * Created by PhpStorm.
- * User: ron
- * Date: 1/3/18
- * Time: 8:07 PM
- */
+<div class="input-group {{ $errors->has('category') ? 'has-error' : '' }}">
+    <i class="material-icons">face</i>
+    {{ Form::text('category', old('category'), ['class' => 'form-control', 'placeholder' => 'Category Name...']) }}
+    @if ($errors->has('category'))
+        <span class="help-block">
+                            <strong>{{ $errors->first('category') }}</strong>
+                        </span>
+    @endif
+</div>
+
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">

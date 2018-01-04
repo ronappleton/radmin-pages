@@ -30,7 +30,8 @@ class PageController extends Controller
      */
     public function create()
     {
-        $categories = PageCategory::pluck(['category', 'id']);
+        $categories = PageCategory::pluck('category', 'id');
+
         return view('radmin-pages::page.create', compact('categories'));
     }
 

@@ -942,12 +942,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/ronappleton/laravel-radmin.git",
-                "reference": "20191097b3ee5564f58df269f9dc0164ae11f81d"
+                "reference": "69db021fbdae643291e1d5ee58265b5e1962bc5e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ronappleton/laravel-radmin/zipball/20191097b3ee5564f58df269f9dc0164ae11f81d",
-                "reference": "20191097b3ee5564f58df269f9dc0164ae11f81d",
+                "url": "https://api.github.com/repos/ronappleton/laravel-radmin/zipball/69db021fbdae643291e1d5ee58265b5e1962bc5e",
+                "reference": "69db021fbdae643291e1d5ee58265b5e1962bc5e",
                 "shasum": ""
             },
             "require": {
@@ -983,7 +983,7 @@
                 }
             ],
             "description": "Admin interface for laravel, pull and play",
-            "time": "2018-01-03T02:21:40+00:00"
+            "time": "2018-01-04T14:14:54+00:00"
         },
         {
             "name": "ronappleton/radmin-permissions",

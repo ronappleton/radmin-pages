@@ -13,7 +13,8 @@
     "require": {
         "laravel/framework": "5.5.*",
         "ronappleton/menubuilder": "dev-master",
-        "ronappleton/radmin": "dev-master"
+        "ronappleton/radmin": "dev-master",
+        "ronappleton/radmin-tinymce": "dev-master"
     },
     "autoload": {
         "psr-4": {

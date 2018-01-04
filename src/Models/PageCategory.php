@@ -6,7 +6,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class PageCategory extends Model
 {
+    protected $fillable = ['category'];
     //
+
     /**
      * Get the relationships for the entity.
      *

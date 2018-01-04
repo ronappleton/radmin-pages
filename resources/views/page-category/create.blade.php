@@ -1,8 +1,8 @@
-@extends(config('radmin-users.layout_file'))
+@extends('radmin::layouts.master')
 
 @section('content')
-    {!! Form::open(['route' => 'users.store']) !!}
-    @include('radmin-users::form')
+    {!! Form::open(['route' => 'page-category.store']) !!}
+    @include('radmin-pages::page-category.form')
     <div class="form-group">
         {{ Form::submit('Create User', ['class' => 'btn btn-sm btn-success form-control']) }}
     </div>

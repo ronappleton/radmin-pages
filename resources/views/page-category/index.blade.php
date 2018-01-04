@@ -1,4 +1,4 @@
-@extends(config('radmin-users.layout_file'))
+@extends('radmin::layouts.master')
 
 @section('title', 'Pages')
 
@@ -8,7 +8,7 @@
 
 @section('content')
     <p>
-        <a href="{{ route('users.create') }}" class="btn btn-sm btn-success">Create New Page Category</a>
+        <a href="{{ route('page-category.create') }}" class="btn btn-sm btn-success">Create New Page Category</a>
     </p>
     <div class="form-group">
         <table class="table table-bordered" id="page-categories">

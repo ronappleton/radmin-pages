@@ -36,7 +36,15 @@ class PageCategoryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'category' => 'required|string|max:125|unique:page_categories,category'
+        ]);
+
+        PageCategory::create([
+            'category' => $request->category
+        ]);
+
+        return view('radmin-pages::page-category.index');
     }
 
     /**
@@ -72,7 +80,13 @@ class PageCategoryController extends Controller
      */
     public function update(Request $request, PageCategory $pageCategory)
     {
-        //
+        $this->validate($request, [
+            'category' => 'required|string|max:125|unique:page_categories,category'
+        ]);
+
+        $pageCategory->update(['category' => $request->category]);
+
+        return view('radmin-pages::page-category.index');
     }
 
     /**

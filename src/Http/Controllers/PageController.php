@@ -5,6 +5,7 @@ namespace RonAppleton\Radmin\Pages\Http\Controllers;
 use RonAppleton\Radmin\Pages\Models\Page;
 use RonAppleton\Radmin\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use RonAppleton\Radmin\Pages\Models\PageCategory;
 
 class PageController extends Controller
 {
@@ -29,7 +30,8 @@ class PageController extends Controller
      */
     public function create()
     {
-        return view('radmin-pages::page.create');
+        $categories = PageCategory::pluck(['category', 'id']);
+        return view('radmin-pages::page.create', compact('categories'));
     }
 
     /**

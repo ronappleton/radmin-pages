@@ -1,3 +1,12 @@
+<div class="input-group {{ $errors->has('category') ? 'has-error' : '' }}">
+    <i class="material-icons">face</i>
+    {{ Form::select('category', $categories, null, ['placeholder' => 'Category Name...']) }}
+    @if ($errors->has('category'))
+        <span class="help-block">
+                            <strong>{{ $errors->first('category') }}</strong>
+                        </span>
+    @endif
+</div>
 <div class="input-group {{ $errors->has('name') ? 'has-error' : '' }}">
     <i class="material-icons">face</i>
     {{ Form::text('name', old('name'), ['class' => 'form-control', 'placeholder' => 'Name...']) }}

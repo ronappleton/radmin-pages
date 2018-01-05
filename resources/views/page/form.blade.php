@@ -1,6 +1,17 @@
 <div class="col-12">
     <div style="padding-top: 20px;"></div>
     <div class="form-group">
+        <div class="input-group {{ $errors->has('page_slug') ? 'has-error' : '' }}">
+            {{ Form::text('page_slug', old('page_slug'), ['class' => 'form-control', 'placeholder' => 'Page Slug (example: youtube-build-omaha)...']) }}
+            @if ($errors->has('page_slug'))
+                <span class="help-block">
+                            <strong>{{ $errors->first('page_slug') }}</strong>
+                        </span>
+            @endif
+        </div>
+    </div>
+
+    <div class="form-group">
         <div class="input-group {{ $errors->has('title') ? 'has-error' : '' }}">
             {{ Form::text('title', old('title'), ['class' => 'form-control', 'placeholder' => 'Page Title (Viewable in tab handle)...']) }}
             @if ($errors->has('title'))

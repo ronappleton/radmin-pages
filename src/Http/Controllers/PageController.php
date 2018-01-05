@@ -101,6 +101,7 @@ class PageController extends Controller
     public function update(Request $request, Page $page)
     {
         $this->validate($request, [
+            'page_slug' => 'required|string',
             'category' => 'required|integer',
             'title' => 'required|string|max:125',
             'content_header' => 'string|max:1024|nullable',
@@ -145,7 +146,8 @@ class PageController extends Controller
             $request->title == $existing->title &&
             $request->content_header == $existing->content_header &&
             $request->name == $existing->name &&
-            $request->content == $existing->content)
+            $request->content == $existing->content &&
+            $request->page_slug == $existing->page_slug)
         {
             return -1;
         }

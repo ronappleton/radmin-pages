@@ -34,7 +34,22 @@ class PageResourceController extends Controller
 
     private function pagesAll()
     {
-        $pages = Page::orderBy('name', 'ASC')->get();
+        $pages = Page::orderBy('name', 'ASC')->with('category')->get();
+
+        $multiplesArray = [];
+
+        foreach ($pages as $page)
+        {
+            $multiplesArray[$page->name] = $page;
+        }
+
+        $pages = [];
+
+        foreach ($multiplesArray as $page)
+        {
+            $pages[] = $page;
+        }
+
         return DataTables::collection($pages)
             ->addColumn('action', function ($page) {
                 $url = route('page.edit', $page->id);

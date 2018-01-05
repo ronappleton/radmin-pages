@@ -9,6 +9,10 @@ class PageCategory extends Model
     protected $fillable = ['category'];
     //
 
+    public function page()
+    {
+        $this->belongsTo(Page::class);
+    }
     /**
      * Get the relationships for the entity.
      *

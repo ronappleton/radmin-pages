@@ -47,7 +47,7 @@
 
     <div class="form-group">
         <div class="input-group {{ $errors->has('content') ? 'has-error' : '' }}">
-            {{ Form::textarea('content', old('content'), ['class' => 'form-control', 'placeholder' => 'Page Content...']) }}
+            <textarea class="form-control" name="content" placeholder="Page Content...">{!! old('content') !!}</textarea>
             @if ($errors->has('content'))
                 <span class="help-block">
                             <strong>{{ $errors->first('content') }}</strong>

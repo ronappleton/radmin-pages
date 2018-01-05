@@ -14,7 +14,7 @@
                 @include('radmin-pages::page.form')
                 <div class="col-12">
                     <div class="form-group">
-                        {{ Form::submit('Change User', ['class' => 'btn btn-sm btn-success form-control']) }}
+                        {{ Form::submit('Alter Page', ['class' => 'btn btn-sm btn-success form-control']) }}
                     </div>
                 </div>
                 {{ Form::close() }}

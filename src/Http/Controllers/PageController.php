@@ -43,7 +43,19 @@ class PageController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+           'category' => 'required|integer',
+           'title' => 'required|string|max:125',
+            'content_header' => 'string|max:1024|nullable',
+            'name' => 'required|string|max:125',
+            'content' => 'required|string'
+        ]);
+
+        $page = new Page();
+        $page->fill($request->toArray());
+        $page->save();
+
+        return view('radmin-pages::page.index');
     }
 
     /**

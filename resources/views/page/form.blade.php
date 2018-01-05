@@ -14,7 +14,7 @@
 
     <div class="form-group">
         <div class="input-group {{ $errors->has('category') ? 'has-error' : '' }}">
-            {{ Form::select('category', $categories, null, ['class' => 'form-control', 'placeholder' => 'Category Name...']) }}
+            {{ Form::select('category', $categories, old('category') ?: isset($model->category_id) ? $model->category_id : null, ['class' => 'form-control', 'placeholder' => 'Category Name...']) }}
             @if ($errors->has('category'))
                 <span class="help-block">
                             <strong>{{ $errors->first('category') }}</strong>
@@ -47,7 +47,7 @@
 
     <div class="form-group">
         <div class="input-group {{ $errors->has('content') ? 'has-error' : '' }}">
-            <textarea class="form-control" name="content" placeholder="Page Content...">{!! old('content') !!}</textarea>
+            <textarea class="form-control" name="content" placeholder="Page Content..." rows="10">{!! old('content') ?: isset($model) ? $model->content : '' !!}</textarea>
             @if ($errors->has('content'))
                 <span class="help-block">
                             <strong>{{ $errors->first('content') }}</strong>

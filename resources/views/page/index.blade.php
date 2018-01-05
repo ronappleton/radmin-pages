@@ -35,9 +35,10 @@
                 ajax: '{{ url('admin/page/ajax-resources/pagesAll') }}',
                 columns: [
                     {data: 'name', name: 'name'},
-                    {data: 'category_id', name: 'category_id'},
+                    {data: 'category_name', name: 'category_name'},
                     {data: 'created_at', name: 'created_at'},
                     {data: 'updated_at', name: 'updated_at'},
+                    {data: 'version', name: 'version'},
                     {data: 'action', name: 'action', orderable: false, searchable: false}
                 ]
             });

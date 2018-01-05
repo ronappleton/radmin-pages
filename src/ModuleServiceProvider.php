@@ -42,12 +42,20 @@ class ModuleServiceProvider extends ServiceProvider
     {
         $this->loadRoutesFrom(__DIR__ . '/Http/routes.php');
         $this->loadMigrationsFrom(__DIR__ . '/../database/migrations');
+        $this->publishConfig();
         $this->loadViews();
         $this->menuListener($events);
     }
 
     public function register()
     {
+    }
+
+    private function publishConfig()
+    {
+        $this->publishes([
+            $this->packagePath('config/radmin-pages.php') => config_path('radmin-pages.php'),
+        ]);
     }
 
     private function packagePath($path)

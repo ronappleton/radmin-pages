@@ -6,12 +6,20 @@ use RonAppleton\Radmin\Pages\Models\Page;
 use RonAppleton\Radmin\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use RonAppleton\Radmin\Pages\Models\PageCategory;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 class PageController extends Controller
 {
     public function handle($page)
     {
-        //
+        $pageToShow = Page::where('page_slug', $page)->orderBy('version', 'DESC')->first();
+
+        if(empty($pageToShow))
+        {
+            throw new NotFoundHttpException();
+        }
+
+        return $this->show($pageToShow);
     }
     /**
      * Display a listing of the resources.
@@ -74,7 +82,21 @@ class PageController extends Controller
     public function show(Page $page)
     {
         $model = $page;
-        return view('radmin-pages::page.show', compact('model'));
+
+        $layout = config("radmin-pages.page.{$model->page_slug}");
+
+        if(empty($layout))
+        {
+            $category = strtolower($model->category()->category);
+            $layout = config("radmin-pages.page_category.{$category}");
+        }
+
+        if(empty($layout))
+        {
+            $layout = config('radmin-pages.frontendLayout', 'layouts.master');
+        }
+
+        return view('radmin-pages::page.show', compact('model', 'layout'));
     }
 
     /**

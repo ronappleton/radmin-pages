@@ -34,7 +34,23 @@ class PageResourceController extends Controller
 
     private function pagesAll()
     {
-        $pages = Page::orderBy('name', 'ASC')->with('category')->get();
+        $pages = $this->filterVersions();
+
+        return DataTables::collection($pages)
+            ->addColumn('action', function ($page) {
+                $url = route('page.edit', $page->id);
+                $buttons = '';
+                $buttons .= "<a href=\"$url\" class=\"btn btn-xs btn-primary\"><i class=\"glyphicon glyphicon-edit\"></i> Edit</a>";
+                $buttons .= "<a href=\"$url\" class=\"btn btn-xs btn-primary\"><i class=\"glyphicon glyphicon-edit\"></i> Publish</a>";
+                return $buttons;
+            })
+            ->editColumn('id', 'ID: {{$id}}')
+            ->make(true);
+    }
+
+    public function filterVersions()
+    {
+        $pages = Page::prepareForDataTable()->get();
 
         $multiplesArray = [];
 
@@ -50,12 +66,6 @@ class PageResourceController extends Controller
             $pages[] = $page;
         }
 
-        return DataTables::collection($pages)
-            ->addColumn('action', function ($page) {
-                $url = route('page.edit', $page->id);
-                return "<a href=\"$url\" class=\"btn btn-xs btn-primary\"><i class=\"glyphicon glyphicon-edit\"></i> Edit</a>";
-            })
-            ->editColumn('id', 'ID: {{$id}}')
-            ->make(true);
+        return $pages;
     }
 }

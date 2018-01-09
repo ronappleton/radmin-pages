@@ -9,7 +9,7 @@ class Page extends Model
 {
     use SoftDeletes;
 
-    protected $fillable = ['title', 'name', 'content_header', 'content', 'version'];
+    protected $fillable = ['title', 'name', 'content_header', 'content', 'version', 'page_slug'];
 
     public $appends = ['category_name'];
 
@@ -21,6 +21,11 @@ class Page extends Model
     public function category()
     {
         return $this->hasOne(PageCategory::class, 'id', 'category_id');
+    }
+
+    public function scopePrepareForDataTable($query)
+    {
+        return $query->with('category')->select('id', 'name', 'category_id', 'updated_at', 'created_at', 'version');
     }
 
     /**

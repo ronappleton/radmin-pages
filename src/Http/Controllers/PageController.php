@@ -14,13 +14,13 @@ class PageController extends Controller
     {
         $pageToShow = Page::where('page_slug', $page)->orderBy('version', 'DESC')->first();
 
-        if(empty($pageToShow))
-        {
+        if (empty($pageToShow)) {
             throw new NotFoundHttpException();
         }
 
         return $this->show($pageToShow);
     }
+
     /**
      * Display a listing of the resources.
      *
@@ -46,23 +46,23 @@ class PageController extends Controller
     /**
      * Store a newly created resources in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
     {
         $this->validate($request, [
-           'category' => 'required|integer',
-           'title' => 'required|string|max:125',
+            'page_slug' => 'required|string',
+            'category' => 'required|integer',
+            'title' => 'required|string|max:125',
             'content_header' => 'string|max:1024|nullable',
             'name' => 'required|string|max:125',
-            'content' => 'required|string'
+            'content' => 'required|string',
         ]);
 
         $version = $this->getVersion($request);
 
-        if($version != -1)
-        {
+        if ($version != -1) {
             $page = new Page();
             $page->fill($request->toArray());
             $page->category_id = $request->category;
@@ -76,7 +76,7 @@ class PageController extends Controller
     /**
      * Display the specified resources.
      *
-     * @param  \RonAppleton\Radmin\Pages\Models\Page  $page
+     * @param  \RonAppleton\Radmin\Pages\Models\Page $page
      * @return \Illuminate\Http\Response
      */
     public function show(Page $page)
@@ -85,14 +85,12 @@ class PageController extends Controller
 
         $layout = config("radmin-pages.page.{$model->page_slug}");
 
-        if(empty($layout))
-        {
+        if (empty($layout)) {
             $category = strtolower($model->category()->category);
             $layout = config("radmin-pages.page_category.{$category}");
         }
 
-        if(empty($layout))
-        {
+        if (empty($layout)) {
             $layout = config('radmin-pages.frontendLayout', 'layouts.master');
         }
 
@@ -102,7 +100,7 @@ class PageController extends Controller
     /**
      * Show the form for editing the specified resources.
      *
-     * @param  \RonAppleton\Radmin\Pages\Models\Page  $page
+     * @param  \RonAppleton\Radmin\Pages\Models\Page $page
      * @return \Illuminate\Http\Response
      */
     public function edit(Page $page)
@@ -116,8 +114,8 @@ class PageController extends Controller
     /**
      * Update the specified resources in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \RonAppleton\Radmin\Pages\Models\Page  $page
+     * @param  \Illuminate\Http\Request $request
+     * @param  \RonAppleton\Radmin\Pages\Models\Page $page
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, Page $page)
@@ -128,13 +126,12 @@ class PageController extends Controller
             'title' => 'required|string|max:125',
             'content_header' => 'string|max:1024|nullable',
             'name' => 'required|string|max:125',
-            'content' => 'required|string'
+            'content' => 'required|string',
         ]);
 
         $version = $this->getVersion($request);
 
-        if($version != -1)
-        {
+        if ($version != -1) {
             $page->version = $version;
         }
 
@@ -146,7 +143,7 @@ class PageController extends Controller
     /**
      * Remove the specified resources from storage.
      *
-     * @param  \RonAppleton\Radmin\Pages\Models\Page  $page
+     * @param  \RonAppleton\Radmin\Pages\Models\Page $page
      * @return \Illuminate\Http\Response
      */
     public function destroy(Page $page)
@@ -159,18 +156,17 @@ class PageController extends Controller
         $existing = Page::where('name', $request->name)->orderBy('version', 'DESC')->first();
 
         //If it doesnt exist, we need to save it.
-        if(empty($existing)) {
+        if (empty($existing)) {
             return 0;
         }
 
         //If it does exist we need to check something has changed before saving
-        if($request->category == $existing->category_id &&
+        if ($request->category == $existing->category_id &&
             $request->title == $existing->title &&
             $request->content_header == $existing->content_header &&
             $request->name == $existing->name &&
             $request->content == $existing->content &&
-            $request->page_slug == $existing->page_slug)
-        {
+            $request->page_slug == $existing->page_slug) {
             return -1;
         }
         return $existing->version + 1;

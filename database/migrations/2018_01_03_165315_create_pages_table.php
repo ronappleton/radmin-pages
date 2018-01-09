@@ -22,6 +22,7 @@ class CreatePagesTable extends Migration
             $table->text('content');
             $table->integer('version')->unsigned()->default(0);
             $table->string('page_slug')->length(125);
+            $table->integer('published')->length(1)->default(1);
             $table->timestamps();
             $table->softDeletes();
 

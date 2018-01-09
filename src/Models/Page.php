@@ -25,7 +25,7 @@ class Page extends Model
 
     public function scopePrepareForDataTable($query)
     {
-        return $query->with('category')->select('id', 'name', 'category_id', 'updated_at', 'created_at', 'version');
+        return $query->with('category')->select('id', 'name', 'category_id', 'updated_at', 'created_at', 'version', 'published');
     }
 
     /**

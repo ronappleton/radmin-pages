@@ -38,10 +38,12 @@ class PageResourceController extends Controller
 
         return DataTables::collection($pages)
             ->addColumn('action', function ($page) {
-                $url = route('page.edit', $page->id);
+                $editUrl = route('page.edit', $page->id);
+                $versionUrl = url('page/versions', $page->id);
                 $buttons = '';
-                $buttons .= "<a href=\"$url\" class=\"btn btn-xs btn-primary\"><i class=\"glyphicon glyphicon-edit\"></i> Edit</a>";
-                $buttons .= "<a href=\"$url\" class=\"btn btn-xs btn-primary\"><i class=\"glyphicon glyphicon-edit\"></i> Publish</a>";
+                $buttons .= "<a href=\"$editUrl\" class=\"btn btn-xs btn-primary\"><i class=\"glyphicon glyphicon-edit\"></i> Edit</a>";
+                $buttons .= '&nbsp;';
+                $buttons .= "<a href=\"$versionUrl\" class=\"btn btn-xs btn-primary\"><i class=\"glyphicon glyphicon-edit\"></i> Version</a>";
                 return $buttons;
             })
             ->editColumn('id', 'ID: {{$id}}')
@@ -67,5 +69,10 @@ class PageResourceController extends Controller
         }
 
         return $pages;
+    }
+
+    public function versions(Request $request)
+    {
+        dd($request->all());
     }
 }

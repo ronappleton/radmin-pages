@@ -33,7 +33,7 @@
             $('#pages').DataTable({
                 processing: true,
                 serverSide: true,
-                ajax: '{{ url('admin/page/ajax-resources/pagesAll') }}',
+                ajax: '{{ url('admin/page/ajax-resources/versions', ['name' => $name]) }}',
                 columns: [
                     {data: 'name', name: 'name'},
                     {data: 'category_name', name: 'category_name'},

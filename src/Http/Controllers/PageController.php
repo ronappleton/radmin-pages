@@ -127,6 +127,7 @@ class PageController extends Controller
             'content_header' => 'string|max:1024|nullable',
             'name' => 'required|string|max:125',
             'content' => 'required|string',
+            'published' => 'sometimes|integer|max:1'
         ]);
 
         $version = $this->getVersion($request);
@@ -134,6 +135,8 @@ class PageController extends Controller
         if ($version != -1) {
             $page->version = $version;
         }
+
+        $page->published = isset($request->published) ? 1 : 0;
 
         $page->save();
 
@@ -170,5 +173,11 @@ class PageController extends Controller
             return -1;
         }
         return $existing->version + 1;
+    }
+
+    public function versions(Page $page)
+    {
+        $name = $page->name;
+        return view('radmin-pages::page.version', compact('name'));
     }
 }

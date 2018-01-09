@@ -14,6 +14,11 @@
                 @include('radmin-pages::page.form')
                 <div class="col-12">
                     <div class="form-group">
+                        {{ Form::checkbox('published', old('published') ?: $model->published) }}
+                    </div>
+                </div>
+                <div class="col-12">
+                    <div class="form-group">
                         {{ Form::submit('Alter Page', ['class' => 'btn btn-sm btn-success form-control']) }}
                     </div>
                 </div>

@@ -130,13 +130,18 @@ class PageController extends Controller
             'published' => 'sometimes|integer|max:1'
         ]);
 
+        $page->published = isset($request->published) ? 1 : 0;
+
+        if(!in_array('published', $page->getDirty()))
+        {
+            $page = $page->replicate(['id', 'published']);
+        }
+
         $version = $this->getVersion($request);
 
         if ($version != -1) {
             $page->version = $version;
         }
-
-        $page->published = isset($request->published) ? 1 : 0;
 
         $page->save();
 
@@ -177,7 +182,7 @@ class PageController extends Controller
 
     public function versions(Page $page)
     {
-        $name = $page->name;
-        return view('radmin-pages::page.version', compact('name'));
+        $page_slug = $page->page_slug;
+        return view('radmin-pages::page.version', compact('page_slug'));
     }
 }

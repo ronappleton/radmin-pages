@@ -25,7 +25,12 @@ class Page extends Model
 
     public function scopePrepareForDataTable($query)
     {
-        return $query->with('category')->select('id', 'name', 'category_id', 'updated_at', 'version', 'published');
+        return $query->with('category')->select('id', 'name', 'category_id', 'updated_at', 'version', 'published', 'page_slug');
+    }
+
+    public function scopePageVersions($query, $page_slug)
+    {
+        return $query->where('page_slug', $page_slug)->orderBy('version', 'DESC');
     }
 
     /**

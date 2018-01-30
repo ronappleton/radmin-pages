@@ -3,7 +3,7 @@
 @section('title', 'Pages')
 
 @section('content_header')
-    <h1>Versions</h1>
+    <h1>All Pages</h1>
 @stop
 
 @section('content')
@@ -33,7 +33,7 @@
             $('#pages').DataTable({
                 processing: true,
                 serverSide: true,
-                ajax: '{{ url("admin/page/ajax-resources/versions/$page_slug") }}',
+                ajax: '{{ url('admin/page/ajax-resources/versions', ['name' => $name]) }}',
                 columns: [
                     {data: 'name', name: 'name'},
                     {data: 'category_name', name: 'category_name'},

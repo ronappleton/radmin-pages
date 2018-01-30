@@ -81,12 +81,12 @@ class PageController extends Controller
      */
     public function show(Page $page)
     {
-        $model = $page;
+        $model = $page->load('category');
 
         $layout = config("radmin-pages.page.{$model->page_slug}");
 
         if (empty($layout)) {
-            $category = strtolower($model->category()->category);
+            $category = strtolower($model->category->category);
             $layout = config("radmin-pages.page_category.{$category}");
         }
 
@@ -130,18 +130,15 @@ class PageController extends Controller
             'published' => 'sometimes|integer|max:1'
         ]);
 
-        $page->published = isset($request->published) ? 1 : 0;
-
-        if(!in_array('published', $page->getDirty()))
-        {
-            $page = $page->replicate(['id', 'published']);
-        }
+        $page->fill($request->all());
 
         $version = $this->getVersion($request);
 
         if ($version != -1) {
             $page->version = $version;
         }
+
+        $page->published = isset($request->published) ? 1 : 0;
 
         $page->save();
 
@@ -182,7 +179,7 @@ class PageController extends Controller
 
     public function versions(Page $page)
     {
-        $page_slug = $page->page_slug;
-        return view('radmin-pages::page.version', compact('page_slug'));
+        $name = $page->name;
+        return view('radmin-pages::page.version', compact('name'));
     }
 }
